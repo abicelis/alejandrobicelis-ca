@@ -5,7 +5,7 @@ Upstream changes come from [andrewbanchich/forty-jekyll-theme](https://github.co
 Branch `alejandrobicelis-ca-site` pulls these changes, and contains my modifications to make it `alejandrobicelis.ca`
 
 
-# Running locally on macOS
+# Running locally (macOS)
 
 Note: Following [this guide](https://jekyllrb.com/docs/installation/macos/)
 
@@ -47,23 +47,6 @@ bundle exec jekyll serve --livereload
 
 # Or, to access site using other devices in the same net (Note: Ensure --host IP is correct)
 bundle exec jekyll serve --livereload --host 192.168.10.85
-
-```
-
-
-# Deploying to Ubuntu 22.04
-```bash
-# Instal dependencies
-sudo apt-get install ruby-full build-essential zlib1g-dev
-
-# Avoid installing RubyGems packages (called gems) as the root user.
-echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
-echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-
-
-
 
 ```
 
