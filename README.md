@@ -1,66 +1,73 @@
-# Forty - Jekyll Theme
+# alejandrobicelis.ca Jekyll site
 
-A Jekyll version of the "Forty" theme by [HTML5 UP](https://html5up.net/).  
+Upstream changes come from [andrewbanchich/forty-jekyll-theme](https://github.com/andrewbanchich/forty-jekyll-theme) into the `master` branch.
 
-![Forty Theme](assets/images/forty.jpg "Forty Theme")
+Branch `alejandrobicelis-ca-site` pulls these changes, and contains my modifications to make it `alejandrobicelis.ca`
 
-# How to Use
 
-For those unfamiliar with how Jekyll works, check out [jekyllrb.com](https://jekyllrb.com/) for all the details, 
-or read up on just the basics of [front matter](https://jekyllrb.com/docs/frontmatter/), [writing posts](https://jekyllrb.com/docs/posts/), 
-and [creating pages](https://jekyllrb.com/docs/pages/).
+# Running locally on macOS
 
-Simply fork this repository and start editing the `_config.yml` file!
+Note: Following [this guide](https://jekyllrb.com/docs/installation/macos/)
 
-> NOTE: GitHub Actions is required to deploy to GitHub Pages because GitHub [refuses to update their version of Jekyll](https://github.com/github/pages-gem/issues/651).
+```bash
+# Install chruby and ruby-install using Homebrew
+brew install chruby ruby-install xz
 
-# Added Features
+# Install latest stable version of Ruby
+ruby-install ruby 3.1.3
 
-* **[Formspree.io](https://formspree.io/) contact form integration** - just add your email to the `_config.yml` and it works!
-* Use `_config.yml` to **set whether the homepage tiles should pull pages or posts**, as well as how many to display.
-* Add your **social profiles** easily in `_config.yml`. Only social profiles buttons you enter in `config.yml` show up on the site footer!
-* Set **featured images** in front matter.
+# Configure shell to automatically use chruby
+nano ~/.profile
+
+##### Append this below #####
+
+## RUBY
+# Include chruby in PATH
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+
+# Using chruby, Make ruby-3.1.3 (installed with ruby-install) the default, instead of macOS's ruby
+chruby ruby-3.1.3
+
+##### End Append #####
+
+# ~~~~ Relaunch your shell so ~/.profile does it's thing ~~~
+# Running ruby -v should return the version of ruby installed by ruby-install, not the default macOS ruby.
+
+# Install jekyll
+gem install jekyll
+
+# Clone site repo and checkout correct branch
+git clone git@github.com:abicelis/alejandrobicelis-ca.git
+cd alejandrobicelis-ca
+git checkout alejandrobicelis-ca-site
+
+# Launch site locally - only localhost access
+bundle exec jekyll serve --livereload
+
+# Or, to access site using other devices in the same net (Note: Ensure --host IP is correct)
+bundle exec jekyll serve --livereload --host 192.168.10.85
+
+```
+
+
+# Deploying to Ubuntu 22.04
+```bash
+# Instal dependencies
+sudo apt-get install ruby-full build-essential zlib1g-dev
+
+# Avoid installing RubyGems packages (called gems) as the root user.
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+
+
+
+```
+
 
 # Credits
 
-Original README from HTML5 UP:
-
-```
-Forty by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-
-
-This is Forty, my latest and greatest addition to HTML5 UP and, per its incredibly
-creative name, my 40th (woohoo)! It's built around a grid of "image tiles" that are
-set up to smoothly transition to secondary landing pages (for which a separate page
-template is provided), and includes a number of neat effects (check out the menu!),
-extra features, and all the usual stuff you'd expect. Hope you dig it!
-
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
-
-(* = not included)
-
-AJ
-aj@lkn.io | @ajlkn
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fortawesome.github.com/Font-Awesome)
-
-	Other:
-		jQuery (jquery.com)
-		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		background-size polyfill (github.com/louisremi)
-		Misc. Sass functions (@HugoGiraudel)
-		Respond.js (j.mp/respondjs)
-		Skel (skel.io)
-```
-
-Repository [Jekyll logo](https://github.com/jekyll/brand) icon licensed under a [Creative Commons Attribution 4.0 International License](http://choosealicense.com/licenses/cc-by-4.0/).
+Original repository [andrewbanchich/forty-jekyll-theme](https://github.com/andrewbanchich/forty-jekyll-theme)
