@@ -29,11 +29,24 @@ sass:
   style: compressed
 
 exclude:
-- "*.gemspec"
-- LICENSE.md
-- CONTRIBUTING.md
-- README.md 
-- generic.md
-- landing.md
-- elements.md
-- all_posts.md
+  - "*.gemspec"
+  - LICENSE.md
+  - CONTRIBUTING.md
+  - README.md 
+  - generic.md
+  - landing.md
+  - elements.md
+  - all_posts.md
+  - assets/images/banner.jpg
+  - assets/images/forty.jpg
+  - assets/images/pic01.jpg
+  - assets/images/pic02.jpg
+  - assets/images/pic03.jpg
+  - assets/images/pic04.jpg
+  - assets/images/pic05.jpg
+  - assets/images/pic06.jpg
+  - assets/images/pic07.jpg
+  - assets/images/pic08.jpg
+  - assets/images/pic09.jpg
+  - assets/images/pic10.jpg
+  - assets/images/pic11.jpg
